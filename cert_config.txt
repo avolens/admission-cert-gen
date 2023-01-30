@@ -1,0 +1,20 @@
+[req]
+req_extensions = v3_req
+distinguished_name = req_distinguished_name
+[ req_distinguished_name ]
+[ v3_req ]
+basicConstraints=CA:FALSE
+subjectAltName=@alt_names
+keyUsage = nonRepudiation, digitalSignature, keyEncipherment
+extendedKeyUsage = serverAuth
+
+[ alt_names ]
+DNS.1 = validating-ac-service
+DNS.2 = validating-ac-service.cylens-dev
+DNS.3 = validating-ac-service.cylens-dev.svc
+DNS.4 = validating-ac-service.cylens-dev.svc.cluster.local
+
+DNS.5 = mutating-ac-service
+DNS.6 = mutating-ac-service.cylens-dev
+DNS.7 = mutating-ac-service.cylens-dev.svc
+DNS.8 = mutating-ac-service.cylens-dev.svc.cluster.local
