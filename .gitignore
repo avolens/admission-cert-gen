@@ -1,2 +1,4 @@
 certs/*
 ca_bundle
+tls.crt
+tls.key

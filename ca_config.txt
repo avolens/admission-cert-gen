@@ -28,4 +28,15 @@ emailAddress           = "info@avolens.com"
 # The subject alternative name extension allows various literal values to be 
 # included in the configuration file
 # http://www.openssl.org/docs/apps/x509v3_config.html
-subjectAltName  = DNS:avolens.com,DNS:avolens.de # multidomain certificate
+subjectAltName  = @alt_names # multidomain certificate
+
+[ alt_names ]
+DNS.1 = validating-ac-service
+DNS.2 = validating-ac-service.cylens-dev
+DNS.3 = validating-ac-service.cylens-dev.svc
+DNS.4 = validating-ac-service.cylens-dev.svc.cluster.local
+
+DNS.5 = mutating-ac-service
+DNS.6 = mutating-ac-service.cylens-dev
+DNS.7 = mutating-ac-service.cylens-dev.svc
+DNS.8 = mutating-ac-service.cylens-dev.svc.cluster.local

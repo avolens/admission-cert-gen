@@ -17,7 +17,7 @@ openssl genrsa -out certs/admission-key.pem 2048
 openssl req -new -key certs/admission-key.pem -subj "/CN=*.cylens-dev.svc" -out certs/admission.csr -config cert_config.txt
 
 # CREATE THE CERT SIGNING THE CSR WITH THE CA CREATED BEFORE
-openssl x509 -req -in certs/admission.csr -CA certs/ca.crt -CAkey certs/ca.key -CAcreateserial -out certs/admission-crt.pem
+openssl x509 -req -in certs/admission.csr -CA certs/ca.crt -CAkey certs/ca.key -CAcreateserial -out certs/admission-crt.pem -extfile cert_config.txt -extensions v3_req
 
 # OUTPUT
 cat certs/ca.crt | base64 | tr -d '\n' > ca_bundle
