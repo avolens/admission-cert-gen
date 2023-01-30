@@ -20,7 +20,11 @@ openssl req -new -key certs/admission-key.pem -subj "/CN=*.cylens-dev.svc" -out 
 openssl x509 -req -in certs/admission.csr -CA certs/ca.crt -CAkey certs/ca.key -CAcreateserial -out certs/admission-crt.pem
 
 # OUTPUT
-cat certs/ca.crt
 cat certs/ca.crt | base64 | tr -d '\n' > ca_bundle
-
 echo ca_bundle generated.
+
+cat certs/admission-crt.pem | base64 | tr -d '\n' > tls.crt
+echo tls.crt generated.
+
+cat certs/admission-key.pem | base64 | tr -d '\n' > tls.key
+echo tls.key generated.
